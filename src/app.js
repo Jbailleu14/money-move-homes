@@ -21,7 +21,7 @@ const AGENTS = [
   { n: 'Marcus Webb', i: 'MW', c: '#1d4e89', b: 'McKinney · Allen · Plano', s: 95, k: [['36', 'closed 24 mo'], ['100.9%', 'of list'], ['22', 'days to close'], ['5.0★', '48 verified']], t: ['Listings', 'Relocation', 'Move-up buyers'] },
   { n: 'Priya Shah', i: 'PS', c: '#8a4b0f', b: 'Southlake · Keller · Grapevine', s: 94, k: [['29', 'closed 24 mo'], ['99.7%', 'of list'], ['17', 'days to close'], ['4.9★', '39 verified']], t: ['Luxury', 'Relocation', 'Negotiation'] },
 ];
-const agentHTML = (a, pick) => `<div class="agent"><div class="av" style="background:${a.c}">${a.i}</div>
+const agentHTML = (a, pick) => `<div class="agent"><div class="av" style="background:${a.c}">${a.photo ? `<img src="${a.photo}" alt="${a.n}" style="width:100%;height:100%;object-fit:cover;border-radius:16px">` : a.i}</div>
 <div><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center"><h4>${a.n}</h4><span class="score">★ ${a.s} Money Move Score</span></div>
 <div class="meta">${a.b}</div><div class="tags">${a.t.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
 <div class="kpis">${a.k.map(([v, l]) => `<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join('')}</div>

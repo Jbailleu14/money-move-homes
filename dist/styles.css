@@ -161,3 +161,4 @@ footer.site li{margin-bottom:6px}
 .copybtn{position:absolute;top:10px;right:10px}
 .logo,.btn{white-space:nowrap}
 @media(max-width:480px){.logo{font-size:1rem}header.site .wrap{gap:10px}.stats4{grid-template-columns:1fr 1fr!important}.stats4 .stat{font-size:1.8rem}.stats4 .card{padding:16px}}
+.table-scroll .cmp.cmp3{min-width:0}@media(max-width:620px){.cmp.cmp3{font-size:.84rem}.cmp.cmp3 th,.cmp.cmp3 td{padding:11px 9px}}

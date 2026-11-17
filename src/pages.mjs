@@ -1,7 +1,7 @@
 // Page content. Each page: { path, title, desc, body, lang? }
 const T = 'Money Move Homes';
 
-const qs = (u, es = false) => `
+export const qs = (u, es = false, loc = '') => `
 <div class="qs" id="quickstart">
   <h3>${es ? 'Encuentra tu agente en 2 minutos' : 'Find your agent in 2 minutes'}</h3>
   <div class="sub">${es ? 'Gratis. Un solo agente. Cero spam.' : 'Free. One agent. Zero spam.'}</div>
@@ -11,7 +11,7 @@ const qs = (u, es = false) => `
     <button data-v="both">${es ? 'Ambos' : 'Both'}</button>
   </div>
   <div class="field"><label class="f" for="qs-loc">${es ? '¿Dónde?' : 'Where?'}</label>
-  <input id="qs-loc" placeholder="${es ? 'Ciudad o código postal' : 'City or ZIP — e.g. Frisco, TX'}" autocomplete="postal-code"></div>
+  <input id="qs-loc" value="${loc}" placeholder="${es ? 'Ciudad o código postal' : 'City or ZIP — e.g. Frisco, TX'}" autocomplete="postal-code"></div>
   <button class="btn primary block" data-qs-go="${u(es ? '/es/match/' : '/match/')}">${es ? 'Ver mis agentes' : 'See my top agents'} →</button>
   <div class="trust-row" style="margin-top:14px;justify-content:center">
     <span><b class="check">✓</b>${es ? 'Sin compromiso' : 'No obligation'}</span>
@@ -222,7 +222,7 @@ ${[['Local closed volume (24 mo.)',25],['Price won vs. list',20],['Days to close
 ${[['1. One agent, your choice','Your contact info goes to the one agent you pick. Not a list, not a call center.'],['2. Never sold, never shared','We don\'t sell or share your info with agents, lenders, title companies or anyone else.'],['3. Swap any time','Text "swap" to your Move Manager. We\'ll introduce the next agent on your shortlist.'],['4. Fees up front','You see each agent\'s typical fee and agreement terms before you meet.'],['5. Free, always','Agents\' brokerages pay us a flat 25% referral fee from their commission when you close. Your price doesn\'t change.'],['6. No lender steering','We never accept payment from lenders, title or insurance companies, and we\'ll never pressure you to use anyone.']].map(([h,p])=>`<div class="card pad-lg"><h3>${h}</h3><p>${p}</p></div>`).join('')}
 </div></div></section>`);
 
-  const agents = inner('/agents/', 'For agents: pay only at close', 'Join the Money Move partner network: 25% at close, exclusive clients, ranked on results.',
+  const agents = inner('/join/', 'For agents: pay only at close', 'Join the Money Move partner network: 25% at close, exclusive clients, ranked on results.',
     `<div><span class="eyebrow">For agents</span><h1>Exclusive clients. Pay only when you close. Ranked on how good you are.</h1>
 <p class="lede">No monthly fees, no lead auctions, no sharing the client with four other agents. One client, introduced to one agent, who earned the spot.</p>
 <a class="btn primary" href="#apply">Apply to the network</a></div>
@@ -241,6 +241,9 @@ ${[['1. One agent, your choice','Your contact info goes to the one agent you pic
 <div class="card"><div class="ic">🎯</div><h3>Exclusive introductions</h3><p>The client picked you from their scorecard. They're expecting your call.</p></div>
 <div class="card"><div class="ic">🌎</div><h3>Niches others ignore</h3><p>Spanish-speaking buyers, new-construction buyers, renters becoming owners, DFW relocations.</p></div>
 <div class="card"><div class="ic">🤝</div><h3>We stay on the deal</h3><p>Our Move Managers keep clients warm and on track, so fewer deals go cold.</p></div>
+<div class="card"><div class="ic">📸</div><h3>Free pro headshot</h3><p>Every partner gets a professional headshot and profile shoot for their scorecard — yours to keep.</p></div>
+<div class="card"><div class="ic">⏳</div><h3>Shorter tail</h3><p>Our referral window is 12 months, not 3 years. Fair is fair.</p></div>
+<div class="card"><div class="ic">📣</div><h3>We market you</h3><p>Top-scored partners are featured in our city pages, social and email to our renter base.</p></div>
 </div>
 <div class="card pad-lg" id="apply" style="margin-top:28px;max-width:640px"><h3>Apply to the network</h3><p class="mini" style="margin-bottom:16px">Preview form — doesn't submit.</p>
 <div class="grid g2"><div class="field"><label class="f">Name</label><input></div><div class="field"><label class="f">License # / state</label><input></div>
